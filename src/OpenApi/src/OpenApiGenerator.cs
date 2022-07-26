@@ -356,6 +356,8 @@ internal sealed class OpenApiGenerator
 
         foreach (var parameter in parameters)
         {
+            // if the parameter doesn't have a valid location
+            // then we should ignore it
             if (parameter.Name is null)
             {
                 throw new InvalidOperationException($"Encountered a parameter of type '{parameter.ParameterType}' without a name. Parameters must have a name.");
